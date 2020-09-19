@@ -1,0 +1,52 @@
+version: '3.2'
+
+volumes:
+  dictionary_local_postgres_data: {}
+  dictionary_local_postgres_data_backups: {}
+
+services:
+  db:
+    image: 'postgres:12.2'
+    volumes:
+      - 'dictionary_local_postgres_data:/var/lib/postgresql/data'
+      - 'dictionary_local_postgres_data_backups:/backups'
+    env_file:
+      - .env
+    ports:
+      - '5443:5432'
+  django:
+    build:
+      context: .
+      cache_from:
+        - dictionary_service:dev
+      args:
+        DEVEL: 'yes'
+    image: dictionary_service:dev
+    command: python manage.py runserver_plus 0.0.0.0:8000
+    volumes:
+      - '.:/opt/dictionary:z'
+    env_file:
+      - .env
+    depends_on:
+      - migrate
+    links:
+      - db
+    ports:
+      - 8040:8000
+  migrate:
+    build:
+      context: .
+      cache_from:
+        - dictionary_service:dev
+      args:
+        DEVEL: 'yes'
+    image: dictionary_service:dev
+    command: python manage.py migrate
+    volumes:
+      - '.:/opt/dictionary:z'
+    env_file:
+      - .env
+    depends_on:
+      - db
+    links:
+      - db

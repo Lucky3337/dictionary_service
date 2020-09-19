@@ -1,0 +1,7 @@
+.git/*
+.ipynb_checkpoints/*
+venv/*
+env/*
+**/*.pyc
+.evn.example
+README.md

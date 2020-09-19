@@ -1,0 +1,12 @@
+USE_DOCKER=yes
+
+DJANGO_ADMIN_URL=^admin/
+DJANGO_SETTINGS_MODULE=core.settings
+DJANGO_SECRET_KEY=******************
+DJANGO_ALLOWED_HOSTS=localhost
+
+POSTGRES_USER=******************
+POSTGRES_PASSWORD=******************
+
+DATABASE_URL=psql://user:pass@db:5432/database_name
+
