@@ -164,7 +164,7 @@ ROOT_URLCONF = 'core.urls'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = 'core.wsgi.application'
 
-ADMIN_URL = r'^admin/'
+ADMIN_URL = 'admin/'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
