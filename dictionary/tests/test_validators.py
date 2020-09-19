@@ -29,6 +29,8 @@ class ValidatorTestCase(TestCase):
         self.assertEqual(error, True)
 
     def test_only_russian_character(self):
+        res = only_russian_character('ЁЖИК')
+        self.assertIsNone(res)
         res = only_russian_character('Привет')
         self.assertIsNone(res)
         res = only_russian_character('Привет как дела Шо как сам')

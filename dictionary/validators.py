@@ -16,6 +16,6 @@ def only_english_character(value):
 
 def only_russian_character(value):
     """Validator of model for russian characters"""
-    match = re.findall(r'([а-яА-Я ])', value)
+    match = re.findall(r'([а-яА-Я Ё])', value)
     if len(match) != len(value):
         raise ValidationError(f"This word {value} has not russian character")
