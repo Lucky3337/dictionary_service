@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from dictionary.validators import only_english_character, only_russian_character
+from .validators import (only_english_character, only_russian_character)
 
 
 class TimestampMixin(models.Model):

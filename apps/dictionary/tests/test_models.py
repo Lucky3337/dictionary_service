@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.db.utils import IntegrityError
 
-from dictionary.models import (
+from apps.dictionary import (
     User,
     UserToken,
     EnglishWord,

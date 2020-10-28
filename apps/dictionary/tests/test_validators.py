@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 
-from dictionary.validators import only_english_character, only_russian_character
+from apps.dictionary import only_english_character, only_russian_character
 
 
 class ValidatorTestCase(TestCase):

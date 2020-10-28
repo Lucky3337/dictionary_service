@@ -8,15 +8,15 @@ stop-all-services:
 
 # Run test in running django container
 run-test:
-	docker exec -ti dictionary_django_1 ./manage.py test
+	docker-compose -f develop.yml run --rm django ./manage.py test
 
 # Make migrations in running django container
 run-makemigrations:
-	docker exec -ti dictionary_django_1 ./manage.py makemigrations
+	docker-compose -f develop.yml run --rm django ./manage.py makemigrations
 
 # Create superuser in running django container
 create-superuser:
-	docker exec -ti dictionary_django_1 ./manage.py createsuperuser
+	docker-compose -f develop.yml run --rm django ./manage.py createsuperuser
 
 # Delete db volumes
 remove-db-volumes:
